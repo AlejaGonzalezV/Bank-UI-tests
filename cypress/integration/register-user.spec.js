@@ -22,7 +22,6 @@ describe('When the user wants to add a user',()=>{
     });
     it("then, the user should be listed with the rigth name, cedula, usuario and estado",()=>{
         cy.get('.MuiTableBody-root').contains(':nth-child(1)',completeName).should('be.visible');
-        cy.get('.MuiTableBody-root').contains('td',completeName).should('be.visible');
         cy.get('.MuiTableBody-root').contains(':nth-child(2)',cedula).should('be.visible');
         cy.get('.MuiTableBody-root').contains(':nth-child(3)',usuario).should('be.visible');
         cy.get('.MuiTableBody-root').contains(':nth-child(4)',estado).should('be.visible');
