@@ -20,7 +20,8 @@ describe('When the user wants to edit a user and missing the name',()=>{
 
 describe('When the user wants to edit a user and its missing the user',()=>{
     before(()=>{
-        cy.visit('https://bank-users-ui.herokuapp.com/');
+        cy.visit('https://bank-users-ui.herokuapp.com/',{ timeout: 10000 });
+        cy.wait(5000);
         cy.get(':nth-child(1) > :nth-child(5) > .MuiGrid-container > :nth-child(1) > .MuiButtonBase-root').click();
         cy.get('#username').click();
         cy.get('#username').clear();

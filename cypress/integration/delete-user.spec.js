@@ -1,7 +1,8 @@
 const nombreAutor="Juan Carlos Xamarin";
 describe('When the user wants to delete a book', ()=>{
     before(()=>{
-        cy.visit('https://bank-users-ui.herokuapp.com/');
+        cy.visit('https://bank-users-ui.herokuapp.com/',{ timeout: 10000 });
+        cy.wait(5000); 
        
     })
     it('The book should not exist in the library',()=>{

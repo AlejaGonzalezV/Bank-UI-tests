@@ -7,7 +7,8 @@ const estado="Activo";
 
 describe('When the user wants to add a user',()=>{
     before(()=>{
-        cy.visit('https://bank-users-ui.herokuapp.com/');
+        cy.visit('https://bank-users-ui.herokuapp.com/',{ timeout: 10000 });
+        cy.wait(5000);
         cy.get(':nth-child(3) > a').click();
         cy.get('#standard-basic').click();
         cy.get('#standard-basic').type(completeName);

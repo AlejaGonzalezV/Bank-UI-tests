@@ -7,7 +7,8 @@ var estado="";
 
 describe('When the user wants to add a user',()=>{
     before(()=>{
-        cy.visit('https://bank-users-ui.herokuapp.com/');
+        cy.visit('https://bank-users-ui.herokuapp.com/',{ timeout: 10000 });
+        cy.wait(5000);
         cy.get(':nth-child(2) > a').click();
         cy.get(':nth-child(1) > :nth-child(5) > .MuiGrid-container > :nth-child(1) > .MuiButtonBase-root').click();
         cy.get('#standard-basic').click();
