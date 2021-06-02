@@ -5,7 +5,7 @@ var cedula;
 const usuario="Ya no me voa matar, wiii";
 var estado="";
 
-describe('When the user wants to add a user',()=>{
+describe('When the user wants to update a user',()=>{
     before(()=>{
         cy.visit('https://bank-users-ui.herokuapp.com/',{ timeout: 10000 });
         cy.wait(5000);
@@ -22,11 +22,12 @@ describe('When the user wants to add a user',()=>{
         cy.get('#username').clear();
         cy.get('#username').type(usuario);
         cy.get('#stateA').click();
-        cy.get('.MuiList-root > [tabindex="-1"]').invoke('val').then(thetest=>{
-        estado=thetest;
-        cy.log(estado);
-        });
         cy.get('.MuiList-root > [tabindex="-1"]').click();
+        cy.get('#stateA').invoke('val').then(theValue=>{
+            estado="Activo";
+            cy.log(estado);
+        });
+        
         cy.get('.MuiButtonBase-root').first().click();
     });
     it("then, the user should be listed with the rigth name, cedula, usuario and estado",()=>{

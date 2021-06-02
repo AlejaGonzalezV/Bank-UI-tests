@@ -21,6 +21,14 @@ describe('When the user wants to add a user',()=>{
         cy.get('.MuiButtonBase-root').first().click();
 
     });
+    after("Then should remove the book created", () =>{
+        cy.wait(5000); 
+        cy.get("table").contains('tr', completeName).invoke("index").then((i) =>{
+            cy.get(`:nth-child(${i+1}) > :nth-child(5) > .MuiGrid-container > :nth-child(2) > .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root`).click();
+        })
+        //cy.get('[nztype="default"]').click();
+        cy.get("table").contains('tr', completeName).should('not.exist');
+    });
     it("then, the user should be listed with the rigth name, cedula, usuario and estado",()=>{
         cy.get('.MuiTableBody-root').contains(':nth-child(1)',completeName).should('be.visible');
         cy.get('.MuiTableBody-root').contains(':nth-child(2)',cedula).should('be.visible');

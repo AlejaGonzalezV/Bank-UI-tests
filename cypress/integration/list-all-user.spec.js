@@ -1,11 +1,11 @@
 
-describe('when the user wants to register a book',()=>{
+describe('When the user wants to see the register of the users in the bank',()=>{
     before(()=>{
         cy.visit('https://bank-users-ui.herokuapp.com/',{ timeout: 10000 });
         cy.wait(5000);
 
     });
-    it("The book is created with the author and the title",()=>{
+    it('Must return the list with length higher than cero if the list isnt empty',()=>{
         cy.get('table').find('tr').should('have.length.greaterThan', 0);
     });
 });
